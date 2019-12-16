@@ -1,2 +1,2 @@
 # dotfiles
-my dotfiles managed by dotbot
+my dotfiles
