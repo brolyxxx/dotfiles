@@ -1,0 +1,25 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Common resources
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+*foreground: rgb:b2/b2/b2
+*background: rgb:08/08/08
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Xterm resources
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Set the correct TERM
+XTerm.termName: xterm-256color
+
+! Scrolling
+XTerm.VT100.saveLines: 4096
+
+! Scroll Bar
+XTerm.VT.scrollBar: false
+XTerm.VT100.scrollbar.width: 8
+
+! Geometry
+XTerm.VT100.geometry: 110x40

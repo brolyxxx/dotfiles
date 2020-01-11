@@ -1,0 +1,9 @@
+
+
+.bashrc:archzu,shell
+.bash_functions:archzu,shell
+.aliases:archzu,shell
+
+.Xresources:archzu,x
+
+.vimrc:archzu,vim
