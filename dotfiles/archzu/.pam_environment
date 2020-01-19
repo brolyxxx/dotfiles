@@ -1,0 +1,9 @@
+## Format is 
+## VARIABLE [DEFAULT=value] [OVERRIDE=value]
+## @{HOME}  and @{SHELL}  are special variables that expand to what is defined in /etc/passwd
+
+XDG_CONFIG_HOME   DEFAULT=@{HOME}/.config
+#QT_QPA_PLATFORMTHEME	DEFAULT="qt5ct"
+EDITOR	DEFAULT="vim"
+MOZ_GTK_TITLEBAR_DECORATION DEFAULT="client"
+XDG_CURRENT_DESKTOP DEFAULT="lxde"

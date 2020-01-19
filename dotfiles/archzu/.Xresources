@@ -23,3 +23,16 @@ XTerm.VT100.scrollbar.width: 8
 
 ! Geometry
 XTerm.VT100.geometry: 110x40
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Xterm resources
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Disable the scrollbar
+URxvt.scrollBar: false
+
+! Set the geometry
+URxvt.geometry:120x40
+

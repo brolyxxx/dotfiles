@@ -1,9 +1,26 @@
 
+archzu=archzu,shell,x,openbox,tint2
 
+# SHELL
 .bashrc:archzu,shell
 .bash_functions:archzu,shell
 .aliases:archzu,shell
+.pam_environment:archzu,shell
 
+# X configs
 .Xresources:archzu,x
 
+# Vim
 .vimrc:archzu,vim
+
+# Openbox
+.config/openbox/autostart:archzu,openbox
+.config/openbox/rc.xml:archzu,openbox
+.config/obmenu-generator/config.pl:archzu,openbox
+.config/obmenu-generator/schema.pl:archzu,openbox
+.config/orcsome/rc.py:archzu,openbox
+
+# Tint2
+.config/tint2/tint2rc:archzu,tint2
+
+

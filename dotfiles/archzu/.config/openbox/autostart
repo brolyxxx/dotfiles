@@ -1,0 +1,26 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+# An example script can be found in /etc/xdg/openbox/
+#
+
+## Launch panel
+#sh ~/.config/polybar/launch.sh &
+tint2 &
+
+## Start udisks2 wrapper
+udiskie --automount --smart-tray --notify &
+
+## Volume tray app
+pasystray &
+
+## Keepassxc
+keepassxc &
+
+## Restore wallpaper
+nitrogen --restore &
+
+## Orcsome, a scripting extension for NETWM compliant window managers
+orcsome &

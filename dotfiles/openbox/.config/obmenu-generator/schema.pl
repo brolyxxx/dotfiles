@@ -1,0 +1,1 @@
+../../../archzu/.config/obmenu-generator/schema.pl
