@@ -285,14 +285,51 @@
       <action name="Resize"/>
     </keybind>
     <keybind key="W-Left">
-      <action name="MoveToEdge"/>
+      <action name="MoveToEdge">
+		  <direction>west</direction>
+	  </action>
     </keybind>
     <keybind key="W-Right">
-      <action name="MoveToEdge"/>
+      <action name="MoveToEdge">
+		  <direction>east</direction>
+	  </action>
     </keybind>
     <keybind key="W-Up">
-      <action name="MoveToEdge"/>
+      <action name="MoveToEdge">
+		  <direction>north</direction>
+	  </action>
     </keybind>
+    <keybind key="W-Down">
+      <action name="MoveToEdge">
+		  <direction>south</direction>
+	  </action>
+    </keybind>
+    <keybind key="W-S-Left">
+      <action name="GrowToEdge">
+		  <direction>west</direction>
+	  </action>
+    </keybind>
+    <keybind key="W-S-Right">
+      <action name="GrowToEdge">
+		  <direction>east</direction>
+	  </action>
+    </keybind>
+    <keybind key="W-S-Up">
+      <action name="GrowToEdge">
+		  <direction>north</direction>
+	  </action>
+    </keybind>
+    <keybind key="W-S-Down">
+      <action name="GrowToEdge">
+		  <direction>south</direction>
+	  </action>
+    </keybind>
+    <keybind key="W-s">
+      <action name="Execute">
+        <command>pulse-output-select.sh</command>
+      </action>
+    </keybind>
+    <!--
     <keybind key="XF86AudioMute">
       <action name="execute">
         <command>pulseaudio-ctl mute</command>
@@ -308,6 +345,7 @@
         <command>pulseaudio-ctl up</command>
       </action>
     </keybind>
+    -->
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>

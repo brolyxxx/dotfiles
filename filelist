@@ -1,5 +1,5 @@
 
-archzu=archzu,shell,x,openbox,tint2
+archzu=archzu,shell,x,openbox,tint2,tmux
 
 # SHELL
 .bashrc:archzu,shell
@@ -23,4 +23,5 @@ archzu=archzu,shell,x,openbox,tint2
 # Tint2
 .config/tint2/tint2rc:archzu,tint2
 
-
+# Tmux
+.tmux.conf:archzu,tmux

@@ -14,7 +14,7 @@ tint2 &
 udiskie --automount --smart-tray --notify &
 
 ## Volume tray app
-pasystray &
+#pasystray &
 
 ## Keepassxc
 keepassxc &
@@ -24,3 +24,6 @@ nitrogen --restore &
 
 ## Orcsome, a scripting extension for NETWM compliant window managers
 orcsome &
+
+## Dropbox
+[[ -x /usr/bin/dropbox ]] && (sleep 5 && dropbox) &

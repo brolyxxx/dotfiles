@@ -39,6 +39,7 @@ PS1='[\u@\h \W]\$ '
 HISTSIZE=1000 # default is 500
 HISTFILESIZE=1000 # default is 500
 HISTCONTROL=ignoredups
+HISTIGNORE=ls
 
 ## SHOPTS
 # If set, the history list is appended to the file named by the value of the HISTFILE variable when the shell exits, rather than overwriting the file.
