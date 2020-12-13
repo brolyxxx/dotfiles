@@ -2,20 +2,22 @@
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <resistance>
     <strength>10</strength>
+    <!-- how much resistance (in pixels) there is between two windows before it lets them overlap -->
     <screen_edge_strength>20</screen_edge_strength>
+    <!-- basically the same as strength but between window and the screen edge -->
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
     <!-- always try to focus new windows when they appear. other rules do
        apply -->
-    <followMouse>no</followMouse>
+    <followMouse>yes</followMouse>
     <!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
     <!-- focus the last used window when changing desktops, instead of the one
        under the mouse pointer. when followMouse is enabled -->
     <underMouse>no</underMouse>
     <!-- move focus under the mouse, even when the mouse is not moving -->
-    <focusDelay>200</focusDelay>
+    <focusDelay>500</focusDelay>
     <!-- when followMouse is enabled, the mouse must be inside the window for
        this many milliseconds (1000 = 1 sec) before moving focus to it -->
     <raiseOnFocus>no</raiseOnFocus>
@@ -40,8 +42,8 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Natura</name>
-    <titleLayout>NLDIMC</titleLayout>
+    <name>KvArcDark</name>
+    <titleLayout>CLIM</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
       N: window icon
@@ -53,19 +55,20 @@
       D: omnipresent (on all desktops).
   -->
     <keepBorder>no</keepBorder>
+    <!-- if windows should keep the border drawn by Openbox when window decorations are turned off -->
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
-      <name>Roboto</name>
-      <size>9</size>
+      <name>Terminus</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>Bold</weight>
+      <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
-      <slant>Normal</slant>
+      <slant>Italic</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>Roboto, Light</name>
-      <size>9</size>
+      <name>Terminus</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -73,17 +76,17 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>Roboto</name>
-      <size>9</size>
+      <name>Terminus</name>
+      <size>10</size>
       <!-- font size in points -->
-      <weight>Normal</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>Roboto</name>
-      <size>9</size>
+      <name>Terminus</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -91,8 +94,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>Roboto</name>
-      <size>9</size>
+      <name>Terminus</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
@@ -100,8 +103,8 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>Roboto</name>
-      <size>9</size>
+      <name>Terminus</name>
+      <size>10</size>
       <!-- font size in points -->
       <weight>Normal</weight>
       <!-- 'bold' or 'normal' -->
@@ -112,7 +115,8 @@
 	To enable rounded corners, the patch also takes an argument for menu corners
 	https://forums.bunsenlabs.org/viewtopic.php?pid=46711#p46711
 	-->
-    <cornerRadius menu="yes">8</cornerRadius>
+    <cornerRadius>4</cornerRadius>
+    <cornerRadius menu="yes">2</cornerRadius>
   </theme>
   <desktops>
     <!-- this stuff is only used at startup, pagers allow you to change them
@@ -128,7 +132,7 @@
     <names>
       <name>#1</name>
       <name>#2</name>
-      <name>#3</name>
+      <name>musica</name>
       <name>#4</name>
     </names>
     <popupTime>875</popupTime>
@@ -137,7 +141,7 @@
   </desktops>
   <resize>
     <drawContents>yes</drawContents>
-    <popupShow>NonPixel</popupShow>
+    <popupShow>Always</popupShow>
     <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
     <!-- 'Center', 'Top', or 'Fixed' -->
@@ -218,7 +222,7 @@
     </keybind>
     <keybind key="W-l">
       <action name="Execute">
-        <command>openbox-lock.sh</command>
+        <command>ob-lock</command>
       </action>
     </keybind>
     <!-- <keybind key="A-F2">
@@ -286,50 +290,54 @@
     </keybind>
     <keybind key="W-Left">
       <action name="MoveToEdge">
-		  <direction>west</direction>
-	  </action>
+        <direction>west</direction>
+      </action>
     </keybind>
     <keybind key="W-Right">
       <action name="MoveToEdge">
-		  <direction>east</direction>
-	  </action>
+        <direction>east</direction>
+      </action>
     </keybind>
     <keybind key="W-Up">
       <action name="MoveToEdge">
-		  <direction>north</direction>
-	  </action>
+        <direction>north</direction>
+      </action>
     </keybind>
     <keybind key="W-Down">
       <action name="MoveToEdge">
-		  <direction>south</direction>
-	  </action>
+        <direction>south</direction>
+      </action>
     </keybind>
     <keybind key="W-S-Left">
       <action name="GrowToEdge">
-		  <direction>west</direction>
-	  </action>
+        <direction>west</direction>
+      </action>
     </keybind>
     <keybind key="W-S-Right">
       <action name="GrowToEdge">
-		  <direction>east</direction>
-	  </action>
+        <direction>east</direction>
+      </action>
     </keybind>
     <keybind key="W-S-Up">
       <action name="GrowToEdge">
-		  <direction>north</direction>
-	  </action>
+        <direction>north</direction>
+      </action>
     </keybind>
     <keybind key="W-S-Down">
       <action name="GrowToEdge">
-		  <direction>south</direction>
-	  </action>
+        <direction>south</direction>
+      </action>
     </keybind>
     <keybind key="W-s">
       <action name="Execute">
-        <command>pulse-output-select.sh</command>
+        <command>pulse-output-select</command>
       </action>
     </keybind>
-    <!--
+    <keybind key="Print">
+      <action name="Execute">
+        <command>flameshot gui</command>
+      </action>
+    </keybind>
     <keybind key="XF86AudioMute">
       <action name="execute">
         <command>pulseaudio-ctl mute</command>
@@ -345,14 +353,33 @@
         <command>pulseaudio-ctl up</command>
       </action>
     </keybind>
-    -->
+    <keybind key="XF86AudioStop">
+      <action name="execute">
+        <command>multimedia-stop</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPlay">
+      <action name="execute">
+        <command>multimedia-play</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioPrev">
+      <action name="execute">
+        <command>multimedia-prev</command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioNext">
+      <action name="execute">
+        <command>multimedia-next</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
-    <dragThreshold>1</dragThreshold>
+    <dragThreshold>4</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
     <doubleClickTime>500</doubleClickTime>
     <!-- in milliseconds (1000 = 1 second) -->
-    <screenEdgeWarpTime>400</screenEdgeWarpTime>
+    <screenEdgeWarpTime>300</screenEdgeWarpTime>
     <!-- Time before changing desktops when the pointer touches the edge of the
        screen while moving a window, in milliseconds (1000 = 1 second).
        Set this to 0 to disable warping -->
@@ -803,11 +830,27 @@
 
   # end of the example
 -->
+    <!-- match URxvt, and remove their decorations -->
+    <!--
+    <application name="urxvt">
+      <decor>no</decor>
+    </application>
+    -->
+    <!-- Tilda goes to desktop 4 full-screen -->
     <application name="tilda">
       <desktop>4</desktop>
       <layer>below</layer>
       <fullscreen>yes</fullscreen>
       <decor>no</decor>
+    </application>
+    <!-- Center Albert -->
+    <application name="albert">
+      <position force="yes">
+        <x>center</x>
+        <y>center</y>
+        <!--<monitor>1</monitor>-->
+      </position>
+      <layer>above</layer>
     </application>
   </applications>
 </openbox_config>

@@ -6,6 +6,9 @@
 # An example script can be found in /etc/xdg/openbox/
 #
 
+## Restore ARandr config
+[[ -x  ~/.screenlayout/DP1_hor_DP2_vert.sh ]] && sh ~/.screenlayout/DP1_hor_DP2_vert.sh &
+
 ## Launch panel
 #sh ~/.config/polybar/launch.sh &
 tint2 &

@@ -7,46 +7,19 @@
 
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-! Terminal.sexy - atelierforest.dark
+! Terminal.sexy
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#include ".Xresources.d/colors"
 
-! special
-*.foreground:   #a8a19f
-*.background:   #1b1918
-*.cursorColor:  #a8a19f
-
-! black
-*.color0:       #1b1918
-*.color8:       #766e6b
-
-! red
-*.color1:       #f22c40
-*.color9:       #f22c40
-
-! green
-*.color2:       #5ab738
-*.color10:      #5ab738
-
-! yellow
-*.color3:       #d5911a
-*.color11:      #d5911a
-
-! blue
-*.color4:       #407ee7
-*.color12:      #407ee7
-
-! magenta
-*.color5:       #6666ea
-*.color13:      #6666ea
-
-! cyan
-*.color6:       #00ad9c
-*.color14:      #00ad9c
-
-! white
-*.color7:       #a8a19f
-*.color15:      #f1efee
-
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Fontconfig configuration
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Xft.autohint: 0
+Xft.antialias: 1
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Xterm resources
@@ -72,11 +45,33 @@ XTerm.VT100.geometry: 110x40
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ! Perl extensions
-URxvt.perl-ext-common:resize-font
+URxvt.perl-ext-common: default,resize-font,matcher
 
 ! Disable the scrollbar
 URxvt.scrollBar: false
 
 ! Set the geometry
-URxvt.geometry:120x40
+URxvt.geometry: 90x30
 
+! True transparency (requires a compositing WM)
+URxvt.depth: 32
+URxvt.background: [80]#000000
+
+! Font
+URxvt.font: xft:Share Tech Mono:size=12
+!URxvt.boldfont: xft:Terminus:style=Bold:size=12
+!URxvt.italicfont: xft:Terminus:style=Light Italic:size=12
+!URxvt.bolditalicfont: xft:Terminus:style=Bold Italic:size=12
+URxvt.letterSpace: 0 
+
+! Manage urls with mouse (needs the matcher ext)
+URxvt.urlLauncher: firefox 
+URxvt.underlineURLs: false 
+URxvt.urlButton: 1
+
+! Options for resize-font ext
+URxvt.keysym.C-minus:     resize-font:smaller
+URxvt.keysym.C-plus:      resize-font:bigger
+URxvt.keysym.C-equal:     resize-font:reset
+URxvt.keysym.C-question:  resize-font:show
+URxvt.resize-font.step: 1

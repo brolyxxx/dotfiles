@@ -5,11 +5,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Source my  aliases 
-if [ -r .aliases ]; then
-	. ~/.aliases
-fi
-
 # Source my ASCII salutation
 if [ -r .ascii ]; then
 	cat .ascii
@@ -31,8 +26,16 @@ fi
 
 #fortune -a 25% starwars 75% all | cowsay -W 60 -f $(find /usr/share/cows -type f | shuf -n 1)
 
-# Bash Prompt
+# Bash prompt
 PS1='[\u@\h \W]\$ '
+
+# Powerline prompt
+if [ -f /usr/share/powerline/bindings/bash/powerline.sh ]; then
+	powerline-daemon -q
+	POWERLINE_BASH_CONTINUATION=1
+	POWERLINE_BASH_SELECT=1
+	. /usr/share/powerline/bindings/bash/powerline.sh
+fi
 
 
 ## HISTORY variables
@@ -60,14 +63,14 @@ if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-thing)"
 fi
 
+# source my aliases
+[ -r ~/.aliases ] && . ~/.aliases
 
-# LESS variables for color output (https://wiki.archlinux.org/index.php/Color_output_in_console)
-export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
-export LESS='-R '
+# Import some standard variables
+[ -r ~/.profile ] && . ~/.profile
 
-# Other useful variables
-export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=:fn=35:ln=32:bn=32:se=36"
-
+# Apply pywal color scheme
+[ -r ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
 
 ## FUNCTIONS
 [ -r ~/.bash_functions ] && . ~/.bash_functions
@@ -77,3 +80,9 @@ export GREP_COLORS="ms=01;32:mc=01;32:sl=:cx=:fn=35:ln=32:bn=32:se=36"
 
 # Enable tmuxp completion
 [ -x /usr/bin/tmuxp ] && eval "$(_TMUXP_COMPLETE=source tmuxp)"
+
+# Enable z, tracks your most used directories
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+# Enable fuck, corrects CLI typos
+[[ -x /usr/bin/thefuck ]] && eval "$(thefuck --alias)"
