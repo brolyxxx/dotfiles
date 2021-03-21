@@ -5,12 +5,22 @@ archzu=archzu,shell,x,openbox,tint2,tmux
 .bashrc:archzu,shell
 .bash_functions:archzu,shell
 .aliases:archzu,shell
+.profile:archzu,shell
 
 # X configs
 .Xresources:archzu,x
+.xinitrc:archzu,x
+.config/picom/picom.conf:archzu,x
 
 # Vim
 .vimrc:archzu,vim
+
+# i3
+.config/i3/config:archzu,i3
+.config/i3status/config:archzu,i3
+
+# Sway
+.config/sway/config:archzu,sway
 
 # Openbox
 .config/openbox/autostart:archzu,openbox
@@ -24,3 +34,6 @@ archzu=archzu,shell,x,openbox,tint2,tmux
 
 # Tmux
 .tmux.conf:archzu,tmux
+
+# Tools
+.config/whipper/whipper.conf:archzu
