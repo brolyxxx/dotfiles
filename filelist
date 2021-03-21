@@ -5,7 +5,6 @@ archzu=archzu,shell,x,openbox,tint2,tmux
 .bashrc:archzu,shell
 .bash_functions:archzu,shell
 .aliases:archzu,shell
-.pam_environment:archzu,shell
 
 # X configs
 .Xresources:archzu,x

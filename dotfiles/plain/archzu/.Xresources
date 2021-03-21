@@ -58,11 +58,11 @@ URxvt.depth: 32
 URxvt.background: [80]#000000
 
 ! Font
-URxvt.font: xft:Share Tech Mono:size=12
-!URxvt.boldfont: xft:Terminus:style=Bold:size=12
-!URxvt.italicfont: xft:Terminus:style=Light Italic:size=12
-!URxvt.bolditalicfont: xft:Terminus:style=Bold Italic:size=12
-URxvt.letterSpace: 0 
+URxvt.font: xft:Terminus:style=Regular:size=12
+URxvt.boldfont: xft:Terminus:style=Bold:size=12
+URxvt.italicfont: xft:Terminus:style=Light Italic:size=12
+URxvt.bolditalicfont: xft:Terminus:style=Bold Italic:size=12
+!URxvt.letterSpace: 0 
 
 ! Manage urls with mouse (needs the matcher ext)
 URxvt.urlLauncher: firefox 
