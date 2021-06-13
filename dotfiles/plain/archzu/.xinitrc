@@ -34,6 +34,7 @@ fi
 
 # export X variables
 export QT_QPA_PLATFORMTHEME="qt5ct"
+#export QT_STYLE_OVERRIDE="kvantum"
 
 #twm &
 #xclock -geometry 50x50-1+1 &
@@ -45,7 +46,10 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 numlockx &
 
 # set keyboard delay and repeat rate
-xset r rate 200 15 & 
+xset r rate 200 15 &
+
+# Disable native Wayland in Chromium
+cat /dev/null > ~/.config/chromium-flags.conf &
 
 # restore pywal colorscheme
 wal -R &

@@ -72,6 +72,9 @@ fi
 # Apply pywal color scheme
 [ -r ~/.cache/wal/sequences ] && (cat ~/.cache/wal/sequences &)
 
+# Import pywal variables
+[ -r ~/.cache/wal/colors.sh ] && . ~/.cache/wal/colors.sh
+
 ## FUNCTIONS
 [ -r ~/.bash_functions ] && . ~/.bash_functions
 

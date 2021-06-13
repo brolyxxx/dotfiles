@@ -49,6 +49,16 @@ else
 fi
 }
 
+# Convert decimal to HEX
+dec2hex() {
+    printf '%x\n' "$1"
+}
+
+# Convert HEX to decimal
+hex2dec() {
+    echo $((16#$1))
+}
+
 # Terminal colors
 colors() {
 	local fgc bgc vals seq0
@@ -77,6 +87,28 @@ colors() {
 	done
 }
 
+colorpanes() {
+# Author: GekkoP
+# Source: http://linuxbbq.org/bbs/viewtopic.php?f=4&t=1656#p33189
+	
+	local f b j i d t v
+	f=3 b=4
+	for j in f b; do
+  		for i in {0..7}; do
+    			printf -v $j$i %b "\e[${!j}${i}m"
+  		done
+	done
+
+	d=$'\e[1m'
+	t=$'\e[0m'
+	v=$'\e[7m'
+ 
+	printf " $f0████$d▄$t  $f1████$d▄$t  $f2████$d▄$t  $f3████$d▄$t  $f4████$d▄$t  $f5████$d▄$t  $f6████$d▄$t  $f7████$d▄$t \n"  
+ 	printf " $f0████$d█$t  $f1████$d█$t  $f2████$d█$t  $f3████$d█$t  $f4████$d█$t  $f5████$d█$t  $f6████$d█$t  $f7████$d█$t \n"  
+ 	printf " $f0████$d█$t  $f1████$d█$t  $f2████$d█$t  $f3████$d█$t  $f4████$d█$t  $f5████$d█$t  $f6████$d█$t  $f7████$d█$t \n"
+ 	printf " $d$f0 ▀▀▀▀  $d$f1 ▀▀▀▀   $f2▀▀▀▀   $f3▀▀▀▀   $f4▀▀▀▀   $f5▀▀▀▀   $f6▀▀▀▀   $f7▀▀▀▀$t \n"  
+ 
+}
 
 # Run command/application and choose paths/files with fzf.                      
 # Always return control of the terminal to user (e.g. when opening GUIs).       
@@ -117,7 +149,7 @@ f() {
     # If the program is not on the list of GUIs (e.g. vim, cat, etc.) bring it  
     # to foreground so we can see the output. Also put cd on this list          
     # otherwise there will be errors)                                           
-    if ! [[ $1 =~ ^(cd|zathura|vlc|eog|kolourpaint)$ ]]; then                   
+    if ! [[ $1 =~ ^(cd|zathura|vlc|smplayer|eog|kolourpaint)$ ]]; then                   
         fg %%                                                                   
     fi                                                                          
                                                                                 

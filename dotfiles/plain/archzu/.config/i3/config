@@ -63,8 +63,11 @@ bindsym $mod+Shift+q kill
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# Finally, Albert (https://albertlauncher.github.io/)
-#bindsym $mod+d exec --no-startup-id albert show
+# Albert (https://albertlauncher.github.io/)
+bindsym $mod+x exec --no-startup-id albert show
+
+# jgmenu
+bindsym $mod+z exec jgmenu_run
 
 # Take a screenshot
 bindsym Print exec --no-startup-id flameshot gui
@@ -169,7 +172,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 
 ######################################
@@ -251,6 +254,17 @@ bindsym $mod+Shift+Mod2+KP_Prior move container to workspace number $ws9
 bindsym $mod+Shift+Mod2+KP_Insert move container to workspace number $ws10
 
 
+# scratchpad
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+KP_Subtract move scratchpad
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+bindsym $mod+KP_Subtract scratchpad show
+
+
+
 ######################################
 ####          RESIZING            ####
 ######################################
@@ -263,16 +277,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 1 px or 1 ppt
+        bindsym k resize grow height 1 px or 1 ppt
+        bindsym l resize shrink height 1 px or 1 ppt
+        bindsym semicolon resize grow width 1 px or 1 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -289,12 +303,13 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    position top # bottom
-    status_command i3status
-    tray_output DP-2
-}
-
+#bar {
+#    position top # bottom
+#    status_command i3status
+#    tray_output DP-2
+#    bindsym button3 exec --no-startup-id jgmenu_run
+#}
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ######################################
 ####           I3_GAPS            ####
@@ -324,18 +339,28 @@ smart_borders no_gaps # on --> always, even when there are gaps
 ######################################
 
 # Correct handling of floating dialogs
-for_window [class="copyq"] floating enable 
+for_window [class="copyq"] floating enable
+for_window [class="(?i)pavucontrol"] floating enable
+for_window [class="(?i)pavucontrol"] floating enable
+
+# Enable floating mode for the firefox "About" window"
+for_window [class="firefox" window_role="About"] floating enable
+
+# Tweaks for Albert launcher
+for_window [class="albert"] border pixel 0
+for_window [class="albert"] floating enable
+
 
 
 ######################################
 ####           START-UP           ####
 ######################################
 
-# Restore xrandr config
-exec --no-startup-id bash ~/.screenlayout/DP1_hor_DP2_vert.sh
-
 # Polkit Authentication Manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# Restore xrandr config
+exec --no-startup-id bash ~/.screenlayout/DP1_hor_DP2_vert.sh
 
 # Start udisks2 wrapper
 exec --no-startup-id udiskie --automount --smart-tray --notify
@@ -344,10 +369,7 @@ exec --no-startup-id udiskie --automount --smart-tray --notify
 exec --no-startup-id dropbox
 
 # Mega
-exec --no-startup-id megasync
-
-# Restore background
-exec --no-startup-id nitrogen --restore
+#exec --no-startup-id megasync
 
 # Clipboard manager
 exec --no-startup-id copyq
@@ -360,3 +382,35 @@ exec --no-startup-id keepassxc
 
 # Pulseaudio System Tray
 exec --no-startup-id pasystray
+
+# Restore background
+exec --no-startup-id nitrogen --restore
+
+# Picom
+exec --no-startup-id picom
+
+
+######################################
+####            COLORS            ####
+######################################
+
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color1 #f0f0f0
+set_from_resource $bg i3wm.color5 #f0f0f0
+set_from_resource $fc i3wm.color6 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $fc     $fc     $fc  $fc       $fc
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
+# PROTIP: You can also dynamically set dmenu's colors this way:
+#bindsym $mod+d exec dmenu_run -nb "$fg" -nf "$bg" -sb "$bg" -sf "$fg"

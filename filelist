@@ -1,5 +1,5 @@
 
-archzu=archzu,shell,x,openbox,tint2,tmux
+archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
 
 # SHELL
 .bashrc:archzu,shell
@@ -9,6 +9,7 @@ archzu=archzu,shell,x,openbox,tint2,tmux
 
 # X configs
 .Xresources:archzu,x
+.Xdefaults:archzu,x
 .xinitrc:archzu,x
 .config/picom/picom.conf:archzu,x
 
@@ -18,6 +19,9 @@ archzu=archzu,shell,x,openbox,tint2,tmux
 # i3
 .config/i3/config:archzu,i3
 .config/i3status/config:archzu,i3
+
+# Polybar
+# to be added
 
 # Sway
 .config/sway/config:archzu,sway
@@ -37,3 +41,7 @@ archzu=archzu,shell,x,openbox,tint2,tmux
 
 # Tools
 .config/whipper/whipper.conf:archzu
+
+# Waybar
+.config/waybar/config:archzu,sway
+.config/waybar/style.css:archzu,sway
