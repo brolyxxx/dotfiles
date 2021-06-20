@@ -26,8 +26,8 @@ set $term alacritty
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
-#set $menu bemenu-run # | xargs swaymsg exec --
-set $menu bemenu-run --list 10 --fn Terminus # --nb $background"d2" --nf $foreground" --tb $color1"d2" --tf $color2 --fb $color1"d2" --ff $color2 --hb $color1"d2" --hf $color2' # | xargs swaymsg exec --
+set $menu bemenu-run | xargs swaymsg exec --
+#set $menu bemenu-run --list 10 --fn Terminus --nb $background"d2" --nf $foreground" --tb $color1"d2" --tf $color2 --fb $color1"d2" --ff $color2 --hb $color1"d2" --hf $color2
 #
 # Outputs
 set $output1 "DP-1"
@@ -36,7 +36,7 @@ set $lockscreen1 "~/pics/lockscreen/lockscreen.png"
 set $lockscreen2 "~/pics/lockscreen/lockscreen2.png"
 
 # Your preferred screen locker
-set $locker 'swaylock -l -i $output1:$lockscreen1 -i $output2:$lockscreen2'
+set $locker 'swaylock -f -l -i $lockscreen1'
 #
 #
 ######################################
@@ -270,16 +270,16 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 # same with keypad, move focused container to workspace
-bindsym $mod+Shift+KP_1 move container to workspace number 1
-bindsym $mod+Shift+KP_2 move container to workspace number 2
-bindsym $mod+Shift+KP_3 move container to workspace number 3
-bindsym $mod+Shift+KP_4 move container to workspace number 4
-bindsym $mod+Shift+KP_5 move container to workspace number 5
-bindsym $mod+Shift+KP_6 move container to workspace number 6
-bindsym $mod+Shift+KP_7 move container to workspace number 7
-bindsym $mod+Shift+KP_8 move container to workspace number 8
-bindsym $mod+Shift+KP_9 move container to workspace number 9
-bindsym $mod+Shift+KP_0 move container to workspace number 10
+bindsym $mod+Shift+KP_End move container to workspace number 1
+bindsym $mod+Shift+KP_Down move container to workspace number 2
+bindsym $mod+Shift+KP_Next move container to workspace number 3
+bindsym $mod+Shift+KP_Left move container to workspace number 4
+bindsym $mod+Shift+KP_Begin move container to workspace number 5
+bindsym $mod+Shift+KP_Right move container to workspace number 6
+bindsym $mod+Shift+KP_Home move container to workspace number 7
+bindsym $mod+Shift+KP_Up move container to workspace number 8
+bindsym $mod+Shift+KP_Prior move container to workspace number 9
+bindsym $mod+Shift+KP_Insert move container to workspace number 10
 #
 # Note: workspaces can have any name you want, not just numbers.
 # We just use 1-10 as the default.
@@ -299,6 +299,8 @@ bindsym $mod+v splitv
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+bindsym $mod+n splith; layout tabbed
+
 #
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
@@ -440,17 +442,17 @@ exec dbus-update-activation-environment --systemd --all
 # Start udisks2 wrapper
 exec udiskie --automount --smart-tray --notify
 
-# Clipboard manager
-exec copyq
-
-# Mega
-exec QT_QPA_PLATFORM=xcb megasync
-
 # Dropbox
 exec dropbox
 
+# Clipboard manager
+exec 'sleep 1; copyq'
+
+# Mega
+exec 'sleep 1; QT_QPA_PLATFORM=xcb megasync'
+
 # KeepassXC
-exec keepassxc
+exec 'sleep 1; keepassxc'
 
 ######################################
 ####            COLORS            ####
