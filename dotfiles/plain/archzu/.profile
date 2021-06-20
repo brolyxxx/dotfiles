@@ -6,19 +6,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
-# WAYLAND variables
-#export ENVIRONMENTD="$HOME/.config/environment.d"
-#set -a
-#if [[ "$WAYLAND_DISPLAY" ]] && [[ -d "$ENVIRONMENTD" ]]; then
-#    for conf in $(ls "$ENVIRONMENTD"/*.conf)
-#    do
-#        . "$conf"
-#    done
-##else
-##    export XDG_CURRENT_DESKTOP="lxde"
-#fi
-#set +a
-#
+# Java
+# Makes fonts appear less ugly
+export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
+
 # Miscellaneous
 export EDITOR=vim
 #export MOZ_GTK_TITLEBAR_DECORATION="client"
@@ -40,8 +31,8 @@ export KUNST_SIZE="1000x1000"
 export KUNST_MUSIC_DIR="$HOME/music"
 
 # Bemenu options
-export BEMENU_OPTS="--list 10 \ 
-    --fn 'Terminus' \
+export BEMENU_OPTS="--list 10 \
+    --fn Terminus \
     --nb $background"d2" \
     --nf $foreground \
     --tb $color1"d2" \
