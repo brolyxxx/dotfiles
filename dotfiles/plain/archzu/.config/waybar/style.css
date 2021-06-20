@@ -12,9 +12,13 @@
     min-height: 0;
 }
 
+window.DP-2 * {
+    font-size: 11px;
+}
+
 window#waybar {
-    background-color: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+    background-color: alpha(@background, 0.4); /*rgba(43, 48, 59, 0.5);*/
+    border-bottom: 1px solid @color8; /*rgba(100, 114, 125, 0.5);*/
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -31,7 +35,7 @@ window#waybar.empty {
 window#waybar.solo {
     background-color: #FFFFFF;
 }
-*/
+
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -41,11 +45,14 @@ window#waybar.chromium {
     background-color: #000000;
     border: none;
 }
+*/
 
 #workspaces button {
-    padding: 0 5px;
+    min-width: 0;
+    padding: 0 15px;
     background-color: transparent;
-    color: #ffffff;
+    color: @foreground;
+    border-radius: 5px;
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
 }
@@ -53,16 +60,17 @@ window#waybar.chromium {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
     background: rgba(0, 0, 0, 0.2);
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 -3px @foreground;
 }
 
 #workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    background-color: alpha(@foreground, 1);
+    box-shadow: inset 0 -3px transparent;
+    color: @color8;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    background-color: alpha(#eb4d4b,0.5);
 }
 
 #mode {
@@ -89,12 +97,13 @@ window#waybar.chromium {
     padding: 0 10px;
     margin: 0 4px;
     color: #ffffff;
+    border-radius: 5px;
 }
 
 
 #window,
 #workspaces {
-    margin: 0 4px;
+    margin: 0 1px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -204,7 +213,7 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    background-color: transparent;
 }
 
 #idle_inhibitor.activated {
