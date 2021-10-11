@@ -27,7 +27,9 @@ set $term alacritty
 # on the original workspace that the command was run on.
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu bemenu-run | xargs swaymsg exec --
-#set $menu bemenu-run --list 10 --fn Terminus --nb $background"d2" --nf $foreground" --tb $color1"d2" --tf $color2 --fb $color1"d2" --ff $color2 --hb $color1"d2" --hf $color2
+#
+# Your preferred screenshot grabber
+set $screenshot flameshot gui
 #
 # Outputs
 set $output1 "DP-1"
@@ -128,7 +130,8 @@ input "1133:49974:Logitech_Gaming_Keyboard_G213" {
     repeat_rate 15
 }
 
-
+input "1133:49291:Logitech_G502_HERO_SE" {
+}
 
 ######################################
 ####        KEY BINDINGS          ####
@@ -146,12 +149,22 @@ bindsym $mod+Shift+q kill
 # Start your launcher
 bindsym $mod+d exec $menu
 #
+# Show an app list
+bindsym $mod+x exec nwg-menu
+#
+# Show your keybindings!
+#bindsym $mod+k exec ~/bin/sway-menu
+#
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
 # Despite the name, also works for non-floating windows.
 # Change normal to inverse to use left mouse button for resizing and right
 # mouse button for dragging.
 floating_modifier $mod normal
+#
+# Change opacity of container under mouse cursor
+bindsym --whole-window $mod+button4 opacity plus 0.1
+bindsym --whole-window $mod+button5 opacity minus 0.1
 #
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -201,6 +214,12 @@ mode "$mode_music" {
 }
 bindsym $mod+m mode "$mode_music"
 #
+# show properties of focused window (similar to xprop)
+bindsym $mod+question exec sway-prop
+#
+# takes a screenshot
+bindsym Print exec $screenshot
+#
 #
 #
 ######################################
@@ -217,6 +236,10 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
+
+# Mimic the Alt-Tab behaviour found in common DEs
+#bindsym Alt+Tab focus next
+#bindsym Alt+Shift+Tab focus prev
 
 # Move the focused window with the same, but add Shift
 #bindsym $mod+Shift+$left move left
@@ -415,13 +438,23 @@ bar {
 ######################################
 #
 # Correct handling of floating dialogs
+for_window [title="(?i)about"] floating enable
+for_window [title="(?i)about"] move position mouse 
 for_window [app_id="copyq"] floating enable
+for_window [app_id="copyq"] move position mouse
 for_window [app_id="(?i)pavucontrol"] floating enable
 for_window [app_id="(?i)org.keepassxc.KeePassXC"] floating enable
 for_window [class="MEGAsync"] floating enable
+for_window [app_id="zenity"] floating enable
 # 
-# Enable floating mode for the firefox "About" window"
-for_window [class="firefox" window_role="About"] floating enable
+# Enable floating mode for the firefox "About" window
+for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+#
+# Enable floating mode for the firefox "Microphone" window
+for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enable
+#
+# Enable floating mode for the firefox PIP mode
+for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
 #
 # Tweaks for Albert launcher
 for_window [class="albert"] border pixel 0

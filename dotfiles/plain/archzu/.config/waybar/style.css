@@ -74,7 +74,7 @@ window#waybar.chromium {
 }
 
 #mode {
-    background-color: #64727D;
+    background-color: alpha(@color4,0.35);
     border-bottom: 3px solid #ffffff;
 }
 
@@ -244,4 +244,8 @@ label:focus {
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;
+}
+
+#custom-checkupdates {
+    background-color: @background;
 }
