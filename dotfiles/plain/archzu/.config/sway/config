@@ -444,7 +444,7 @@ for_window [app_id="copyq"] floating enable
 for_window [app_id="copyq"] move position mouse
 for_window [app_id="(?i)pavucontrol"] floating enable
 for_window [app_id="(?i)org.keepassxc.KeePassXC"] floating enable
-for_window [class="MEGAsync"] floating enable
+for_window [class="^MEGAsync$" shell="^xwayland$"] floating enable
 for_window [app_id="zenity"] floating enable
 # 
 # Enable floating mode for the firefox "About" window
