@@ -390,7 +390,7 @@ bindsym $mod+r mode "resize"
 default_border pixel 2
 titlebar_border_thickness 0
 titlebar_padding 0
-font pango:monospace 10
+font pango: Iosevka 11
 #
 # inner gaps are those between two adjacent containers (or a container and an edge) and
 # outer gaps are an additional spacing along the screen edges.
@@ -445,6 +445,7 @@ for_window [app_id="copyq"] move position mouse
 for_window [app_id="(?i)pavucontrol"] floating enable
 for_window [app_id="(?i)org.keepassxc.KeePassXC"] floating enable
 for_window [class="^MEGAsync$" shell="^xwayland$"] floating enable
+for_window [app_id="udiskie"] floating enable
 for_window [app_id="zenity"] floating enable
 # 
 # Enable floating mode for the firefox "About" window
@@ -495,7 +496,7 @@ exec 'sleep 1; keepassxc'
 include ~/.cache/wal/colors-sway
 
 # class                    border     backgr.    text           indicator    child_border
-client.focused             $color1    $color1    $foreground    $color7      $color1
+client.focused             $color4    $color4    $foreground    $color7      $color4
 client.focused_inactive    $color8    $color8    $foreground    $color7      $color8
 client.unfocused           $color0    $color0    $foreground    $color7      $color0
 client.urgent              $color2    $color2    $background    $color7      $color2

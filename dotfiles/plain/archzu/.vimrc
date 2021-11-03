@@ -36,5 +36,8 @@ set expandtab       " Expand TABs to spaces
 "
 call plug#begin('~/.vim/plugged')
 
+" vim-kitty - kitty config syntax highlighting for vim
+Plug 'fladson/vim-kitty', { 'branch': 'main' }
+
 " Initialize plugin system
 call plug#end()
