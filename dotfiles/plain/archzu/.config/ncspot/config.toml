@@ -1,0 +1,8 @@
+# Audio configuration
+backend = "alsa"
+backend_device = "dsp_oratory1990"
+bitrate = 320
+gapless = false
+volnorm = false
+
+

@@ -6,6 +6,7 @@ archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
 .bash_functions:archzu,shell
 .aliases:archzu,shell
 .profile:archzu,shell
+.config/neofetch/config.conf:archzu,shell
 
 # X configs
 .Xresources:archzu,x
@@ -13,18 +14,29 @@ archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
 .xinitrc:archzu,x
 .config/picom/picom.conf:archzu,x
 
-# Vim
-.vimrc:archzu,vim
+# XDG dirs
+.config/user-dirs.dirs:archzu
 
 # i3
 .config/i3/config:archzu,i3
 .config/i3status/config:archzu,i3
 
-# Polybar
-# to be added
+# Music
+.config/mpd/mpd.conf:archzu,music
+.config/mpd_sima/mpd_sima.cfg:archzu,music
+.config/ncmpcpp/config:archzu,music
+.config/ncspot/config.toml:archzu,music
+.config/PulseEffects/output/Audeze LCD-2C AutoEq.json:archzu,music
+.config/PulseEffects/output/Audeze LCD-2C Chrono.json:archzu,music
+.config/PulseEffects/output/Audeze LCD-2C metal571.json:archzu,music
+.config/PulseEffects/output/Audeze LCD-2C Oratory1990 fine-tuned.json:archzu,music
+.config/PulseEffects/output/Audeze LCD-2C Oratory1990.json:archzu,music
+.config/PulseEffects/output/Audeze LCD-2C Oratory1990 less bass.json:archzu,music
+.config/PulseEffects/output/Audeze LCD-2C pre-amp only.json:archzu,music
+.config/PulseEffects/output/Sennheiser Momentum 2.0.json:archzu,music
 
-# Sway
-.config/sway/config:archzu,sway
+# NWG Panel
+.config/nwg-panel/menu-start.css:archzu
 
 # Openbox
 .config/openbox/autostart:archzu,openbox
@@ -32,6 +44,12 @@ archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
 .config/obmenu-generator/config.pl:archzu,openbox
 .config/obmenu-generator/schema.pl:archzu,openbox
 .config/orcsome/rc.py:archzu,openbox
+
+# Polybar
+# to be added
+
+# Sway
+.config/sway/config:archzu,sway
 
 # Tint2
 .config/tint2/tint2rc:archzu,tint2
@@ -41,6 +59,9 @@ archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
 
 # Tools
 .config/whipper/whipper.conf:archzu
+
+# Vim
+.vimrc:archzu,vim
 
 # Waybar
 .config/waybar/config:archzu,sway
