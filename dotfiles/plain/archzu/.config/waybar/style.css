@@ -64,13 +64,13 @@ window#waybar.chromium {
 }
 
 #workspaces button.focused {
-    background-color: alpha(@foreground, 1);
+    background-color: alpha(@color1, 1);
     box-shadow: inset 0 -3px transparent;
-    color: @color8;
+    color: @foreground;
 }
 
 #workspaces button.urgent {
-    background-color: alpha(#eb4d4b,0.5);
+    background-color: alpha(@color2,0.5);
 }
 
 #mode {

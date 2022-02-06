@@ -6,11 +6,11 @@
     // "width": 1280, // Waybar widthi, leave blank for a dynamic value
     // Choose the order of the modules
     "modules-left": [
-            "sway/workspaces", 
+            "sway/window", 
             "sway/mode"
     ],
     "modules-center": [
-            "sway/window"
+            "sway/workspaces"
     ],
     "modules-right": [
             "idle_inhibitor", 

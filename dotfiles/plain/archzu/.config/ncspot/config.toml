@@ -5,4 +5,6 @@ bitrate = 320
 gapless = false
 volnorm = false
 
-
+# Cache
+audio_cache = true
+audio_cache_size=2000

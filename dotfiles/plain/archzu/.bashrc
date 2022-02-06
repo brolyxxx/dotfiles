@@ -57,10 +57,10 @@ shopt -s autocd
 
 # Start ssh-agent and create environmet variable
 if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent > ~/.ssh-agent-thing
+    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env" 
 fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<~/.ssh-agent-thing)"
+if [[ ! $SSH_AUTH_SOCK ]]; then
+   source "$XDG_RUNTIME_DIR/ssh-agent.env" > /dev/null
 fi
 
 # source my aliases
@@ -89,3 +89,8 @@ fi
 
 # Enable fuck, corrects CLI typos
 [[ -x /usr/bin/thefuck ]] && eval "$(thefuck --alias)"
+
+
+# BEGIN_KITTY_SHELL_INTEGRATION
+if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
+# END_KITTY_SHELL_INTEGRATION

@@ -257,6 +257,18 @@ bindsym $mod+Shift+Right move right
 ####          WORKSPACES          ####
 ######################################
 #
+# Bind workspaces to output
+workspace 1 output $output1
+workspace 2 output $output2
+workspace 3 output $output1
+workspace 4 output $output2
+workspace 5 output $output1
+workspace 6 output $output2
+workspace 7 output $output1
+workspace 8 output $output2
+workspace 9 output $output1
+workspace 10 output $output2
+
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -438,8 +450,8 @@ bar {
 ######################################
 #
 # Correct handling of floating dialogs
-for_window [title="(?i)about"] floating enable
-for_window [title="(?i)about"] move position mouse 
+for_window [title="(?i)about" app_id="^(?!.*(f|F)irefox).*"] floating enable
+for_window [title="(?i)about" app_id="^(?!.*(f|F)irefox).*"] move position mouse 
 for_window [app_id="copyq"] floating enable
 for_window [app_id="copyq"] move position mouse
 for_window [app_id="(?i)pavucontrol"] floating enable
@@ -449,7 +461,7 @@ for_window [app_id="udiskie"] floating enable
 for_window [app_id="zenity"] floating enable
 # 
 # Enable floating mode for the firefox "About" window
-for_window [app_id="firefox" title="About Mozilla Firefox"] floating enable
+for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
 #
 # Enable floating mode for the firefox "Microphone" window
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enable
@@ -496,7 +508,7 @@ exec 'sleep 1; keepassxc'
 include ~/.cache/wal/colors-sway
 
 # class                    border     backgr.    text           indicator    child_border
-client.focused             $color4    $color4    $foreground    $color7      $color4
+client.focused             $color1    $color1    $foreground    $color7      $color1
 client.focused_inactive    $color8    $color8    $foreground    $color7      $color8
 client.unfocused           $color0    $color0    $foreground    $color7      $color0
 client.urgent              $color2    $color2    $background    $color7      $color2
