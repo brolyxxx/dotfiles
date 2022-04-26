@@ -97,7 +97,7 @@ visualizer_in_stereo = yes
 #
 ## Available values: spectrum, wave, wave_filled, ellipse.
 ##
-visualizer_type = spectrum
+visualizer_type = ellipse 
 #
 #visualizer_fps = 60
 #
@@ -110,7 +110,7 @@ visualizer_type = spectrum
 ## Alternative subset of 256 colors for terminals that support it.
 ##
 #visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
-#
+visualizer_color = 198,199,200,201,202,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224 
 ##
 ## Note: The next few visualization options apply to the spectrum visualizer.
 ##
@@ -405,6 +405,7 @@ default_find_mode = wrapped
 #cyclic_scrolling = no
 #
 #lyrics_fetchers = azlyrics, genius, musixmatch, sing365, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
+lyrics_fetchers = azlyrics,  musixmatch, sing365, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo, zeneszoveg, internet
 #
 follow_now_playing_lyrics = yes
 #

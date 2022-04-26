@@ -2,9 +2,12 @@
 backend = "alsa"
 backend_device = "dsp_oratory1990"
 bitrate = 320
-gapless = false
+gapless = true
 volnorm = false
 
 # Cache
 audio_cache = true
 audio_cache_size=2000
+
+# Appearance
+use_nerdfont = false 

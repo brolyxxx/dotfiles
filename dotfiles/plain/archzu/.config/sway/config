@@ -36,17 +36,40 @@ set $output1 "DP-1"
 set $output2 "DP-2"
 set $lockscreen1 "~/pics/lockscreen/lockscreen.png"
 set $lockscreen2 "~/pics/lockscreen/lockscreen2.png"
-
+#
 # Your preferred screen locker
 set $locker 'swaylock -f -l -i $lockscreen1'
 #
+# Use swaynagmode to control swaynag via keyboard shortcuts
+set $nag exec swaynagmode
+mode "nag" {
+  bindsym {
+    Ctrl+d    mode "default"
+
+    Ctrl+c    $nag --exit
+    q         $nag --exit
+    Escape    $nag --exit
+
+    Return    $nag --confirm
+
+    Tab       $nag --select prev
+    Shift+Tab $nag --select next
+
+    Left      $nag --select next
+    Right     $nag --select prev
+
+    Up        $nag --select next
+    Down      $nag --select prev
+  }
+}
+swaynag_command $nag
 #
 ######################################
 ####          THEMING             ####
 ######################################
 #
 # Restore GTK3 theme
-exec_always ~/bin/import-gsettings
+exec_always ~/.config/sway/config.d/import-gsettings
 #
 #
 #
@@ -129,9 +152,11 @@ input "1133:49974:Logitech_Gaming_Keyboard_G213" {
     repeat_delay 200
     repeat_rate 15
 }
-
+#
 input "1133:49291:Logitech_G502_HERO_SE" {
 }
+#
+input type:tablet_tool map_to_output $output1
 
 ######################################
 ####        KEY BINDINGS          ####
@@ -170,7 +195,7 @@ bindsym --whole-window $mod+button5 opacity minus 0.1
 bindsym $mod+Shift+c reload
 #
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec $nag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Lock screen
 bindsym $mod+l exec $locker
@@ -268,7 +293,7 @@ workspace 7 output $output1
 workspace 8 output $output2
 workspace 9 output $output1
 workspace 10 output $output2
-
+#
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -291,8 +316,8 @@ bindsym $mod+KP_7 workspace number 7
 bindsym $mod+KP_8 workspace number 8
 bindsym $mod+KP_9 workspace number 9
 bindsym $mod+KP_0 workspace number 10
-
-
+#
+#
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -335,7 +360,7 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 bindsym $mod+n splith; layout tabbed
-
+#
 #
 # Make the current focus fullscreen
 bindsym $mod+f fullscreen
@@ -459,6 +484,7 @@ for_window [app_id="(?i)org.keepassxc.KeePassXC"] floating enable
 for_window [class="^MEGAsync$" shell="^xwayland$"] floating enable
 for_window [app_id="udiskie"] floating enable
 for_window [app_id="zenity"] floating enable
+for_window [app_id="floating"] floating enable
 # 
 # Enable floating mode for the firefox "About" window
 for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
@@ -468,6 +494,9 @@ for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enabl
 #
 # Enable floating mode for the firefox PIP mode
 for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+#
+# Enable floating mode for Handbrake preview window
+for_window [app_id="ghb" title="HandBrake Preview"] floating enable
 #
 # Tweaks for Albert launcher
 for_window [class="albert"] border pixel 0
@@ -481,32 +510,32 @@ for_window [class="albert"] floating enable
 
 # Polkit Authentication Manager
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
+#
 # Import shell variables to systemd and dbus
 exec dbus-update-activation-environment --systemd --all
-
+#
 # Start udisks2 wrapper
 exec udiskie --automount --smart-tray --notify
-
+#
 # Dropbox
 exec dropbox
-
+#
 # Clipboard manager
 exec 'sleep 1; copyq'
-
+#
 # Mega
 exec 'sleep 1; QT_QPA_PLATFORM=xcb megasync'
-
+#
 # KeepassXC
 exec 'sleep 1; keepassxc'
-
+#
 ######################################
 ####            COLORS            ####
 ######################################
 #
 # import the color scheme
 include ~/.cache/wal/colors-sway
-
+#
 # class                    border     backgr.    text           indicator    child_border
 client.focused             $color1    $color1    $foreground    $color7      $color1
 client.focused_inactive    $color8    $color8    $foreground    $color7      $color8

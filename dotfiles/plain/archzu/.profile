@@ -32,12 +32,12 @@ export KUNST_MUSIC_DIR="$HOME/music"
 
 # Bemenu options
 export BEMENU_OPTS="--list 10 \
-    --fn Terminus \
+    --fn 'Iosevka Regular 10' \
     --nb $background"d2" \
-    --nf $foreground \
+    --nf $color5 \
     --tb $color1"d2" \
     --tf $color2 \
-    --fb $color1"d2" \
+    --fb $background"d2" \
     --ff $color2 \
-    --hb $color1"d2" \
+    --hb $color5"d2" \
     --hf $color2" 

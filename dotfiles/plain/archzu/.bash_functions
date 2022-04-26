@@ -97,7 +97,7 @@ colorpanes() {
 	local f b j i d t v
 	f=3 b=4
 	for j in f b; do
-  		for i in {0..7}; do
+  		for i in {0..15}; do
     			printf -v $j$i %b "\e[${!j}${i}m"
   		done
 	done
@@ -110,7 +110,6 @@ colorpanes() {
  	printf " $f0████$d█$t  $f1████$d█$t  $f2████$d█$t  $f3████$d█$t  $f4████$d█$t  $f5████$d█$t  $f6████$d█$t  $f7████$d█$t \n"  
  	printf " $f0████$d█$t  $f1████$d█$t  $f2████$d█$t  $f3████$d█$t  $f4████$d█$t  $f5████$d█$t  $f6████$d█$t  $f7████$d█$t \n"
  	printf " $d$f0 ▀▀▀▀  $d$f1 ▀▀▀▀   $f2▀▀▀▀   $f3▀▀▀▀   $f4▀▀▀▀   $f5▀▀▀▀   $f6▀▀▀▀   $f7▀▀▀▀$t \n"  
- 
 }
 
 # Run command/application and choose paths/files with fzf.                      
