@@ -81,11 +81,8 @@ fi
 # Set Byobu prompt
 [ -r /home/broly/.config/byobu/prompt ] && . /home/broly/.config/byobu/prompt    
 
-# Enable tmuxp completion
-[ -x /usr/bin/tmuxp ] && eval "$(_TMUXP_COMPLETE=source tmuxp)"
-
 # Enable z, tracks your most used directories
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
 
 # Enable fuck, corrects CLI typos
-[[ -x /usr/bin/thefuck ]] && eval "$(thefuck --alias)"
+#[[ -x /usr/bin/thefuck ]] && eval "$(thefuck --alias)"

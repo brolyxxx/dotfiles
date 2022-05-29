@@ -1,6 +1,11 @@
 # Audio configuration
-backend = "alsa"
-backend_device = "dsp_oratory1990"
+
+# Uncomment for Alsa
+#backend = "alsa"
+#backend_device = "dsp_oratory1990lessbass"
+# Uncomment for Pulseaudio
+backend = "pulseaudio"
+
 bitrate = 320
 gapless = true
 volnorm = false

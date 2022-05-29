@@ -30,6 +30,7 @@ set $menu bemenu-run | xargs swaymsg exec --
 #
 # Your preferred screenshot grabber
 set $screenshot flameshot gui
+set $screenshot_alt copyq "copy('image/png', screenshotSelect())" 
 #
 # Outputs
 set $output1 "DP-1"
@@ -244,6 +245,7 @@ bindsym $mod+question exec sway-prop
 #
 # takes a screenshot
 bindsym Print exec $screenshot
+bindsym Ctrl+Print exec $screenshot_alt
 #
 #
 #
@@ -475,8 +477,8 @@ bar {
 ######################################
 #
 # Correct handling of floating dialogs
-for_window [title="(?i)about" app_id="^(?!.*(f|F)irefox).*"] floating enable
-for_window [title="(?i)about" app_id="^(?!.*(f|F)irefox).*"] move position mouse 
+#for_window [title="(?i)about" app_id="^(?!.*(f|F)irefox).*"] floating enable # buggy
+#for_window [title="(?i)about" app_id="^(?!.*(f|F)irefox).*"] move position mouse # buggy
 for_window [app_id="copyq"] floating enable
 for_window [app_id="copyq"] move position mouse
 for_window [app_id="(?i)pavucontrol"] floating enable
@@ -486,8 +488,13 @@ for_window [app_id="udiskie"] floating enable
 for_window [app_id="zenity"] floating enable
 for_window [app_id="floating"] floating enable
 # 
-# Enable floating mode for the firefox "About" window
+# Enable floating mode for the "About" windows
 for_window [app_id="firefox" title="^About Mozilla Firefox$"] floating enable
+for_window [app_id="geany" title="^About Geany$"] floating enable
+for_window [app_id="xournalpp" title="^About Xournal++$"] floating enable
+for_window [app_id="soffice" title="^About Libre"] floating enable
+for_window [app_id="ghb" title="^About HandBrake$"] floating enable
+#
 #
 # Enable floating mode for the firefox "Microphone" window
 for_window [app_id="firefox" title="Firefox - Sharing Indicator"] floating enable
