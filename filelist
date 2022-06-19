@@ -7,6 +7,7 @@ archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
 .aliases:archzu,shell
 .profile:archzu,shell
 .config/neofetch/config.conf:archzu,shell
+.config/alacritty/alacritty.yml:archzu,shell
 
 # X configs
 .Xresources:archzu,x
@@ -16,6 +17,9 @@ archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
 
 # XDG dirs
 .config/user-dirs.dirs:archzu
+
+# Dunst
+.config/dunst/dunstrc:archzu,openbox,i3,sway
 
 # i3
 .config/i3/config:archzu,i3
