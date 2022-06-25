@@ -536,6 +536,9 @@ exec 'sleep 1; QT_QPA_PLATFORM=xcb megasync'
 # KeepassXC
 exec 'sleep 1; keepassxc'
 #
+# Easyeffects
+exec easyeffects --gapplication-service
+#
 ######################################
 ####            COLORS            ####
 ######################################
