@@ -185,3 +185,11 @@ f() {
     # Clean up temporary variables                                              
     rm /tmp/fzf_tmp                                                             
 }                                                                               
+
+#######
+# CPU Limit wrapper
+#
+cpul() {
+    sudo cpulimit -l 200 -v -p $(pgrep $1)
+}
+

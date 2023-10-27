@@ -1,7 +1,8 @@
 [{
     // "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "output": "DP-1",
+    "output": "Dell Inc. DELL U2518D 3C4YP99OABGL",
+    //"output": "DP-3", 
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar widthi, leave blank for a dynamic value
     // Choose the order of the modules
@@ -185,7 +186,7 @@
 {
     // "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "output": "DP-2",
+    "output": "Dell Inc. DELL P2317H 9KFDW8661KLS",
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width, leave blank for a dynamic value
     // Choose the order of the modules

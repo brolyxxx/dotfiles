@@ -8,6 +8,9 @@ archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
 .profile:archzu,shell
 .config/neofetch/config.conf:archzu,shell
 .config/alacritty/alacritty.yml:archzu,shell
+.config/alacritty/dracula.yml:archzu,shell
+.config/kitty/kitty.conf:archzu,shell
+.config/kitty/diff.conf:archzu,shell
 
 # X configs
 .Xresources:archzu,x
@@ -32,7 +35,7 @@ archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
 .config/ncspot/config.toml:archzu,music
 .config/PulseEffects/output/Audeze LCD-2C AutoEq.json:archzu,music
 .config/PulseEffects/output/Audeze LCD-2C Chrono.json:archzu,music
-.config/PulseEffects/output/Audeze LCD-2C metal571.json:archzu,music
+.config/PulseEffects/output/AudeZE lcd-2c METAL571.JSON:ARCHZU,MUSIC
 .config/PulseEffects/output/Audeze LCD-2C Oratory1990 fine-tuned.json:archzu,music
 .config/PulseEffects/output/Audeze LCD-2C Oratory1990.json:archzu,music
 .config/PulseEffects/output/Audeze LCD-2C Oratory1990 less bass.json:archzu,music

@@ -1,8 +1,9 @@
-# Audio configuration
+## Audio configuration
 
 # Uncomment for Alsa
 #backend = "alsa"
 #backend_device = "dsp_oratory1990lessbass"
+
 # Uncomment for Pulseaudio
 backend = "pulseaudio"
 
@@ -10,9 +11,16 @@ bitrate = 320
 gapless = true
 volnorm = false
 
-# Cache
+## Cache
 audio_cache = true
-audio_cache_size=2000
+audio_cache_size=1000
 
-# Appearance
-use_nerdfont = false 
+## Appearance
+use_nerdfont = true 
+
+## Desktop notifications
+notify = true
+
+[notification_format]
+title = "%title"
+body = "%artists"

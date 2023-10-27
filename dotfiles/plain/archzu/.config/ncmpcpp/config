@@ -343,7 +343,7 @@ execute_on_song_change = "~/.config/ncmpcpp/rekunst.sh --silent"
 #
 #browser_display_mode = classic
 #
-#search_engine_display_mode = classic
+search_engine_display_mode = columns 
 #
 #playlist_editor_display_mode = classic
 #

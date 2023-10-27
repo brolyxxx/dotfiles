@@ -6,6 +6,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 
+# Override the driver for VA-API and VDPAU
+export LIBVA_DRIVER_NAME=i965
+export VDPAU_DRIVER=va_gl
+
 # Java
 # Makes fonts appear less ugly
 export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"
@@ -13,7 +17,7 @@ export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=lcd -Dswing.defaultlaf=co
 # Miscellaneous
 export EDITOR=vim
 #export MOZ_GTK_TITLEBAR_DECORATION="client"
-export TERMINAL=alacritty
+#export TERMINAL=alacritty
 
 # LESS variables for color output (https://wiki.archlinux.org/index.php/Color_output_in_console)
 export LESS='-R '

@@ -33,8 +33,9 @@ set $screenshot flameshot gui
 set $screenshot_alt copyq "copy('image/png', screenshotSelect())" 
 #
 # Outputs
-set $output1 "DP-1"
-set $output2 "DP-2"
+set $output1 "Dell Inc. DELL U2518D 3C4YP99OABGL" 
+set $output2 "Dell Inc. DELL P2317H 9KFDW8661KLS"
+set $output3 "Dell Inc. DELL P2317H 9KFDW8661G7S"
 set $lockscreen1 "~/pics/lockscreen/lockscreen.png"
 set $lockscreen2 "~/pics/lockscreen/lockscreen2.png"
 #
@@ -83,14 +84,18 @@ exec_always ~/.config/sway/config.d/import-gsettings
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 output $output1 {
-    position 0 200
+    position 0 1720
     #bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 }
 #
-    output $output2 {
+output $output2 {
     transform 270 
-    position 2560 0
+    position 2560 1440
     #bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+}
+output $output3 {
+    position 640 640
+    scale 1.0
 }
 #
 # Let Azote set the wallpaper
@@ -122,7 +127,7 @@ exec ~/.azotebg
 #
 exec swayidle -w \
     timeout 600 $locker \
-    timeout 1200 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    timeout 1800 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
     before-sleep $locker
 #
 #
@@ -169,6 +174,9 @@ input type:tablet_tool map_to_output $output1
 bindsym $mod+Return exec $term
 bindsym $mod+KP_Enter exec $term
 #
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+#
 # Kill focused window
 bindsym $mod+Shift+q kill
 #
@@ -177,6 +185,30 @@ bindsym $mod+d exec $menu
 #
 # Show an app list
 bindsym $mod+x exec nwg-menu
+#
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec $nag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#
+# Lock screen
+bindsym $mod+l exec $locker
+#
+# Toggle focused screen on/off
+bindsym Pause output - dpms toggle
+#
+# Comprehensive display profile switcher
+set $mode_output Output (a) All screens (v) Vertical screen only (t) Disable top screen
+mode "$mode_output" {
+	bindsym a exec ~/.config/sway/config.d/sway-output-profiles.py set all, mode "default"
+	bindsym v exec ~/.config/sway/config.d/sway-output-profiles.py set vert-only, mode "default"
+	bindsym t exec ~/.config/sway/config.d/sway-output-profiles.py set disable-top, mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default" 
+}
+bindsym $mod+F4 mode "$mode_output"
+#
+# Reload Waybar configuration
+bindsym $mod+Shift+r killall -SIGUSR2 waybar
 #
 # Show your keybindings!
 #bindsym $mod+k exec ~/bin/sway-menu
@@ -192,27 +224,18 @@ floating_modifier $mod normal
 bindsym --whole-window $mod+button4 opacity plus 0.1
 bindsym --whole-window $mod+button5 opacity minus 0.1
 #
-# Reload the configuration file
-bindsym $mod+Shift+c reload
-#
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec $nag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
-# Lock screen
-bindsym $mod+l exec $locker
-#
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 #
 # Use keyboard media buttons to control music player
-bindsym XF86AudioPlay exec --no-startup-id multimedia-play
-bindsym XF86AudioStop exec --no-startup-id multimedia-stop
-bindsym XF86AudioPrev exec --no-startup-id multimedia-prev
-bindsym XF86AudioNext exec --no-startup-id multimedia-next
+bindsym --locked XF86AudioPlay exec --no-startup-id multimedia-play
+bindsym --locked XF86AudioStop exec --no-startup-id multimedia-stop
+bindsym --locked XF86AudioPrev exec --no-startup-id multimedia-prev
+bindsym --locked XF86AudioNext exec --no-startup-id multimedia-next
 #
 # Comprehensive Log-out menu
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
@@ -530,14 +553,15 @@ exec dropbox
 # Clipboard manager
 exec 'sleep 1; copyq'
 #
-# Mega
-exec 'sleep 1; QT_QPA_PLATFORM=xcb megasync'
-#
 # KeepassXC
 exec 'sleep 1; keepassxc'
 #
 # Easyeffects
-exec easyeffects --gapplication-service
+#exec easyeffects --gapplication-service
+#
+# Megasync
+exec 'sleep 5; QT_QPA_PLATFORM=xcb megasync'
+exec 'sleep 5; QT_QPA_PLATFORM=xcb megasync'
 #
 ######################################
 ####            COLORS            ####
