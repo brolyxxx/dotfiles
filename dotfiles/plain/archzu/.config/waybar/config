@@ -128,11 +128,14 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-wifi": "{signalStrength}% ",
         "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}\nDownload: {bandwidthDownBits}\nUpload: {bandwidthUpBits}",
+        "tooltip-format-wifi": "{essid} {signalStrength}%",
+        "tooltip-format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
@@ -314,8 +317,10 @@
         "format-ethernet": "",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-tooltip": "{essid} {signalStrength}%",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+        "tooltip-format-wifi": "{essid} {signalStrength}%",
+        "tooltip-format-disconnected": "Disconnected ⚠"
     },
     "pulseaudio": {
         "scroll-step": 1, // %, can be a float
