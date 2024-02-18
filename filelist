@@ -1,6 +1,6 @@
 
 archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
-newbuild=newbuild,music,tmux,vim
+archzu666=newbuild,music,tmux,vim
 
 # SHELL
 .bashrc:archzu,shell,newbuild
@@ -10,7 +10,7 @@ newbuild=newbuild,music,tmux,vim
 .config/neofetch/config.conf:archzu,shell,newbuild
 .config/alacritty/alacritty.yml:archzu,shell
 .config/alacritty/dracula.yml:archzu,shell
-.config/kitty/kitty.conf:archzu,shell,newbuild
+.config/kitty/kitty.conf:archzu,shell
 .config/kitty/diff.conf:archzu,shell
 
 # X configs
@@ -20,7 +20,7 @@ newbuild=newbuild,music,tmux,vim
 .config/picom/picom.conf:archzu,x
 
 # XDG dirs
-.config/user-dirs.dirs:archzu,newbuild
+.config/user-dirs.dirs:archzu
 
 # Dunst
 .config/dunst/dunstrc:archzu,openbox,i3,sway
