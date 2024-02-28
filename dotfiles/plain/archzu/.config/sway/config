@@ -36,8 +36,8 @@ set $screenshot_alt copyq "copy('image/png', screenshotSelect())"
 set $output1 "Dell Inc. DELL U2518D 3C4YP99OABGL" 
 set $output2 "Dell Inc. DELL P2317H 9KFDW8661KLS"
 set $output3 "Dell Inc. DELL P2317H 9KFDW8661G7S"
-set $lockscreen1 "~/pics/lockscreen/lockscreen.png"
-set $lockscreen2 "~/pics/lockscreen/lockscreen2.png"
+set $lockscreen1 "~/pics/lockscreen/wallhaven-76jx13_2560x1440.png"
+set $lockscreen2 "~/pics/lockscreen/wallhaven-76jx13_1920x1080.png"
 #
 # Your preferred screen locker
 set $locker 'swaylock -f -l -i $lockscreen1'
@@ -71,7 +71,8 @@ swaynag_command $nag
 ######################################
 #
 # Restore GTK3 theme
-exec_always ~/.config/sway/config.d/import-gsettings
+# Not needed if using nwg-look to config GTK3
+#exec_always ~/.config/sway/config.d/import-gsettings
 #
 #
 #
@@ -187,7 +188,7 @@ bindsym $mod+d exec $menu
 bindsym $mod+x exec nwg-menu
 #
 # Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec $nag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+e exec $nag -t warning -m 'Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 #
 # Lock screen
 bindsym $mod+l exec $locker
@@ -571,7 +572,7 @@ exec 'sleep 5; QT_QPA_PLATFORM=xcb megasync'
 include ~/.cache/wal/colors-sway
 #
 # class                    border     backgr.    text           indicator    child_border
-client.focused             $color1    $color1    $foreground    $color7      $color1
-client.focused_inactive    $color8    $color8    $foreground    $color7      $color8
-client.unfocused           $color0    $color0    $foreground    $color7      $color0
-client.urgent              $color2    $color2    $background    $color7      $color2
+#client.focused             $color1    $color1    $foreground    $color7      $color1
+#client.focused_inactive    $color8    $color8    $foreground    $color7      $color8
+#client.unfocused           $color0    $color0    $foreground    $color7      $color0
+#client.urgent              $color2    $color2    $background    $color7      $color2

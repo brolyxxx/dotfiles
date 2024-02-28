@@ -20,7 +20,7 @@ archzu666=newbuild,music,tmux,vim
 .config/picom/picom.conf:archzu,x
 
 # XDG dirs
-.config/user-dirs.dirs:archzu
+.config/user-dirs.dirs:archzu,newbuild
 
 # Dunst
 .config/dunst/dunstrc:archzu,openbox,i3,sway
