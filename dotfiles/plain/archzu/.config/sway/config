@@ -574,10 +574,13 @@ exec 'sleep 5; QT_QPA_PLATFORM=xcb megasync'
 exec 'sleep 5; QT_QPA_PLATFORM=xcb megasync'
 #
 # Qpwgraph
-exec qpwgraph --minimized
+#exec qpwgraph --minimized
 #
 # JamesDSP
 exec jamesdsp --tray
+#
+# WAYVNC
+exec wayvnc
 ######################################
 ####            COLORS            ####
 ######################################
