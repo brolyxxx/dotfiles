@@ -35,3 +35,6 @@ export BEMENU_OPTS="--list 10 \
     --ff $color2 \
     --hb $color5"d2" \
     --hf $color2" 
+
+# Music Player Daemon
+MPC_FORMAT="[%artist% - ][%track% ]%title%[ (%album%)][ - %originaldate%]"
