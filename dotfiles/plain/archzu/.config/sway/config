@@ -227,10 +227,10 @@ bindsym --whole-window $mod+button5 opacity minus 0.1
 #
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
-bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+
+bindsym --locked XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-
+bindsym --locked XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym --locked XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 #
 # Use keyboard media buttons to control music player
 bindsym --locked XF86AudioPlay exec --no-startup-id multimedia-play
@@ -503,13 +503,18 @@ bar {
 # Correct handling of floating dialogs
 #for_window [title="(?i)about" app_id="^(?!.*(f|F)irefox).*"] floating enable # buggy
 #for_window [title="(?i)about" app_id="^(?!.*(f|F)irefox).*"] move position mouse # buggy
-for_window [app_id="copyq"] floating enable
-for_window [app_id="copyq"] move position mouse
+for_window [app_id="copyq"] {
+    floating enable
+    move position mouse 
+    move down 50 px
+    }
 for_window [app_id="(?i)pavucontrol"] floating enable
+for_window [app_id="(?i)org.rncbc.qpwgraph"] floating enable
 for_window [app_id="(?i)org.keepassxc.KeePassXC"] floating enable
 for_window [class="^MEGAsync$" shell="^xwayland$"] floating enable
 for_window [app_id="udiskie"] floating enable
 for_window [app_id="zenity"] floating enable
+for_window [app_id="nwg_icon_picker"] floating enable
 for_window [app_id="floating"] floating enable
 # 
 # Enable floating mode for the "About" windows
@@ -518,6 +523,7 @@ for_window [app_id="geany" title="^About Geany$"] floating enable
 for_window [app_id="xournalpp" title="^About Xournal++$"] floating enable
 for_window [app_id="soffice" title="^About Libre"] floating enable
 for_window [app_id="ghb" title="^About HandBrake$"] floating enable
+for_window [app_id="ghb" title="^HandBrake Queue$"] floating enable
 #
 #
 # Enable floating mode for the firefox "Microphone" window
@@ -532,6 +538,9 @@ for_window [app_id="ghb" title="HandBrake Preview"] floating enable
 # Tweaks for Albert launcher
 for_window [class="albert"] border pixel 0
 for_window [class="albert"] floating enable
+
+# Tell if window is under Xwayland
+for_window [shell="xwayland"] title_format "[XWayland] %title"
 #
 #
 #
@@ -564,6 +573,11 @@ exec 'sleep 1; keepassxc'
 exec 'sleep 5; QT_QPA_PLATFORM=xcb megasync'
 exec 'sleep 5; QT_QPA_PLATFORM=xcb megasync'
 #
+# Qpwgraph
+exec qpwgraph --minimized
+#
+# JamesDSP
+exec jamesdsp --tray
 ######################################
 ####            COLORS            ####
 ######################################
