@@ -29,7 +29,7 @@ set $term kitty
 set $menu bemenu-run | xargs swaymsg exec --
 #
 # Your preferred screenshot grabber
-set $screenshot flameshot gui
+set $screenshot 'grim -g "$(slurp -d)" - | swappy -f -'
 set $screenshot_alt copyq "copy('image/png', screenshotSelect())" 
 #
 # Outputs
