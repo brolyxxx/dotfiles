@@ -22,7 +22,7 @@ export KUNST_SIZE="1000x1000"
 # The position where the album art should be displayed
 #export KUNST_POSITION="+0+0"
 # Where your music is located
-export KUNST_MUSIC_DIR="$HOME/music"
+export KUNST_MUSIC_DIR="/data/media/music"
 
 # Bemenu options
 export BEMENU_OPTS="--list 10 \
@@ -37,4 +37,4 @@ export BEMENU_OPTS="--list 10 \
     --hf $color2" 
 
 # Music Player Daemon
-MPC_FORMAT="[%artist% - ][%track% ]%title%[ (%album%)][ - %originaldate%]"
+export MPC_FORMAT="[%artist% - ][%track% ]%title%[ (%album%)][ - %originaldate%]"

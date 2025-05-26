@@ -318,7 +318,7 @@ visualizer_color = 198,199,200,201,202,204,205,206,207,208,209,210,211,212,213,2
 ## Note: Custom command that will be executed each time song changes. Useful for
 ## notifications etc.
 ##
-#execute_on_song_change = "~/.config/ncmpcpp/rekunst.sh --silent"
+execute_on_song_change = "~/bin/rekunst.sh --silent"
 #
 ##
 ## Note: Custom command that will be executed each time player state
