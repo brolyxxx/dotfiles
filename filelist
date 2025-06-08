@@ -1,6 +1,6 @@
 
 archzu=archzu,shell,x,openbox,tint2,tmux,i3,sway
-archzu666=newbuild,music,tmux,vim
+archzu666=newbuild,music,tmux,vim,pkgbuild
 
 # SHELL
 .bashrc:archzu,shell,newbuild
@@ -66,3 +66,6 @@ archzu666=newbuild,music,tmux,vim
 # Waybar
 .config/waybar/config:archzu,sway
 .config/waybar/style.css:archzu,sway
+
+# RUST/Cargo
+.cargo/config.toml:pkgbuild
