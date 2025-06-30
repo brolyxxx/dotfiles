@@ -25,6 +25,9 @@ archzu666=newbuild,music,tmux,vim,pkgbuild
 # Dunst
 .config/dunst/dunstrc:archzu,openbox,i3,sway
 
+# Fuzzel
+.config/fuzzel/fuzzel.ini:archzu,newbuild,sway
+
 # i3
 .config/i3/config:archzu,i3
 .config/i3status/config:archzu,i3

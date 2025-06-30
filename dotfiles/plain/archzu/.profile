@@ -22,7 +22,7 @@ export KUNST_SIZE="1000x1000"
 # The position where the album art should be displayed
 #export KUNST_POSITION="+0+0"
 # Where your music is located
-export KUNST_MUSIC_DIR="/data/media/music"
+export KUNST_MUSIC_DIR="/data/media/music/albums"
 
 # Bemenu options
 export BEMENU_OPTS="--list 10 \
